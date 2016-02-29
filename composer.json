@@ -14,11 +14,12 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "3.0.*"
+        "symfony/framework-bundle": "~2.8"
     },
     "autoload": {
         "psr-0": {
             "b3da\\DynFormBundle": ""
         }
-    }
+    },
+    "target-dir": "b3da/DynFormBundle"
 }
