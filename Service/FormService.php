@@ -20,6 +20,10 @@ class FormService
      */
     protected $em;
 
+    /**
+     * FormService constructor.
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager) {
         $this->em = $entityManager;
     }
@@ -143,6 +147,10 @@ class FormService
         return self::STATUS_ERROR;
     }
 
+    /**
+     * @param $resultId
+     * @return DynFormResult|null
+     */
     public function findDynFormResultById($resultId) {
         $result = $this->em->getRepository(DynFormResult::class)->find($resultId);
 
@@ -177,7 +185,7 @@ class FormService
      * @param FormInterface $form
      * @param int $dynFormId
      * @param bool $persist
-     * @return int or false
+     * @return int|false
      */
     public function updateDynField(FormInterface $form, $dynFormId = null, $persist = false) {
         /** @var DynField $dynField */

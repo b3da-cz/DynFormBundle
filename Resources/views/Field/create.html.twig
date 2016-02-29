@@ -6,15 +6,23 @@
             <h3>{{ 'dynForm.heading.formFieldCreate' | trans }}</h3>
         </div>
         <div class="panel-body">
-            {{ form(form) }}
-        </div>
-        <div class="panel-body">
-            <div class="form-group">
-                <button id="dynForm_choiceAdd" class="btn btn-default">
+            {{ form_start(form) }}
+            {{ form_row(form.label) }}
+            {{ form_row(form.type) }}
+            {{ form_row(form.required) }}
+            <div class="form-group" id="dynForm_rowChoiceAdd">
+                <label for="dynForm_choiceAdd" class="col-sm-2 control-label">
                     {{ 'dynForm.buttonChoice.add' | trans }}
-                </button>
+                </label>
+                <div class="col-sm-10">
+                    <button id="dynForm_choiceAdd" class="btn btn-default">
+                        {{ 'dynForm.label.add' | trans }}
+                    </button>
+                </div>
             </div>
             <div id="dynForm_choiceList"></div>
+            {{ form_row(form.submit) }}
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

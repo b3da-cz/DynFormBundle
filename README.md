@@ -31,11 +31,11 @@ b3da_dyn_form:
 ```yml
 # uncomment translator
 translator:     { fallbacks: ["%locale%"] }
-# add Bootstrap form theme into Twig Configuration
+# add Bootstrap form theme under Twig configuration
 twig:
     form_themes: ['bootstrap_3_horizontal_layout.html.twig']
 ```
 
-* clear cache, install assets;
+* _create_ __database__ and __schema__, _clear_ __cache__, _install_ __assets__;
 
 * navigate to `/forms/`
