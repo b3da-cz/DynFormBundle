@@ -1,0 +1,4 @@
+services:
+    b3da_dynform.service.form_service:
+        class: b3da\DynFormBundle\Service\FormService
+        arguments: ["@doctrine.orm.default_entity_manager"]

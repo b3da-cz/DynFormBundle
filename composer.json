@@ -1,0 +1,24 @@
+{
+    "name": "b3da/dyn-form-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony bundle for dynamic forms",
+    "keywords": ["dynamic","form"],
+    "homepage": "https://github.com/b3da-cz/DynFormBundle",
+    "license": "GPLV3",
+    "authors": [
+        {
+            "name": "Tomas Beran",
+            "email": "b3da@b3da.net",
+            "homepage": "http://b3da.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "b3da\\DynFormBundle": ""
+        }
+    }
+}

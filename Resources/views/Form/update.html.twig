@@ -1,0 +1,55 @@
+{% extends 'b3daDynFormBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>{{ 'dynForm.heading.formUpdate' | trans }}</h3>
+        </div>
+        <div class="panel-body">
+            {{ form(form) }}
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                <div class="list-group">
+                    <a href="{{ path('b3da_dynform_field_create', {'formId': dynForm.id}) }}" class="list-group-item list-group-item-success">
+                        {{ 'dynForm.form.addField' | trans }}
+                    </a>
+                </div>
+                <div class="list-group">
+                    <h3>{{ 'dynForm.heading.formFieldList' | trans }}</h3>
+                    {% if fields is defined and fields is not empty %}
+                    {% for field in fields %}
+                        <div class="list-group">
+                            <a href="{{ path('b3da_dynform_field_update', {'fieldId': field.id}) }}" class="list-group-item list-group-item-info">
+                                {{ 'dynForm.heading.formFieldUpdate' | trans }}
+                                <strong>{{ field.label }}</strong>
+                            </a>
+                            <li class="list-group-item">
+                                {{ 'dynForm.field.type' | trans }}
+                                <i>
+                                    {{ field.type | replace({'Symfony\\Component\\Form\\Extension\\Core\\Type\\': ''}) | trans }}
+                                </i>
+                            </li>
+                            {% if field.data > '' %}
+                                {% set choices = field.data | split(';') %}
+                                <li class="list-group-item">
+                                    <ul>
+                                    {% for choice in choices %}
+                                        <li>{{ choice }}</li>
+                                    {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endif %}
+                            <a href="{{ path('b3da_dynform_field_delete', {'fieldId': field.id}) }}" class="list-group-item">
+                                <span class="text-danger">
+                                    {{ 'dynForm.heading.formFieldDelete' | trans }}
+                                </span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

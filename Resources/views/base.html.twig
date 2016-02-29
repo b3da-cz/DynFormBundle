@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('bundles/b3dadynform/css/bootstrap/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/b3dadynform/css/bootstrap/bootstrap-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/b3dadynform/css/style.css') }}">
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+</head>
+<body class="container-fluid no-padding">
+{% include 'b3daDynFormBundle::navigation.html.twig' %}
+<aside id="notices">
+    {% for msgType, flashMessages in app.session.flashBag.all %}
+        {% for msg in flashMessages %}
+            <div class="notice {{ msgType }}">
+                <span>{{ 'notice.label' | trans }}</span>
+                <span>{{ msg | trans }}</span>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</aside>
+{% block body %}{% endblock %}
+
+<script src="{{ asset('bundles/b3dadynform/js/jquery-2.2.0.min.js') }}"></script>
+<script src="{{ asset('bundles/b3dadynform/js/bootstrap/bootstrap.min.js') }}"></script>
+<script src="{{ asset('bundles/b3dadynform/js/script.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+b3da_dynform_form_create:
+    path:     /form/
+    defaults: { _controller: b3daDynFormBundle:Form:createDynForm }
+
+b3da_dynform_form_update:
+    path:     /form/{formId}/
+    defaults: { _controller: b3daDynFormBundle:Form:updateDynForm }
+
+b3da_dynform_form_show:
+    path:     /form/{formId}/show/
+    defaults: { _controller: b3daDynFormBundle:Form:showDynForm }
+
+b3da_dynform_form_delete:
+    path:     /form/{formId}/delete/
+    defaults: { _controller: b3daDynFormBundle:Form:deleteDynForm }
+
+b3da_dynform_forms_list:
+    path:     /forms/
+    defaults: { _controller: b3daDynFormBundle:Form:listDynForms }
+
+
+
+
+b3da_dynform_field_create:
+    path:     /form/{formId}/field/
+    defaults: { _controller: b3daDynFormBundle:Field:createDynField }
+
+b3da_dynform_field_update:
+    path:     /field/{fieldId}/
+    defaults: { _controller: b3daDynFormBundle:Field:updateDynField }
+
+b3da_dynform_field_delete:
+    path:     /field/{fieldId}/delete
+    defaults: { _controller: b3daDynFormBundle:Field:deleteDynField }

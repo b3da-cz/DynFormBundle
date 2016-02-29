@@ -1,0 +1,40 @@
+{% extends 'b3daDynFormBundle::base.html.twig' %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>{{ 'dynForm.heading.formsList' | trans }}</h3>
+        </div>
+        <div class="panel-body">
+        {% if forms is defined and forms is not empty %}
+            <div class="list-group">
+                <div class="list-group">
+                    <a href="{{ path('b3da_dynform_form_create') }}" class="list-group-item list-group-item-success">
+                        {{ 'dynForm.heading.formCreate' | trans }}
+                    </a>
+                </div>
+            {% for form in forms %}
+                <div class="list-group">
+                    <a href="{{ path('b3da_dynform_form_update', {'formId': form.id}) }}" class="list-group-item list-group-item-info">
+                        {{ 'dynForm.heading.formUpdate' | trans }}
+                        <strong>{{ form.name }}</strong>
+                    </a>
+                    <a href="{{ path('b3da_dynform_form_show', {'formId': form.id}) }}" class="list-group-item">
+                        {{ 'dynForm.heading.formShow' | trans }}
+                    </a>
+                    <a href="{{ path('b3da_dynform_form_delete', {'formId': form.id}) }}" class="list-group-item">
+                        <span class="text-danger">
+                            {{ 'dynForm.heading.formDelete' | trans }}
+                        </span>
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <a href="{{ path('b3da_dynform_form_create') }}" class="list-group-item list-group-item-success">
+                {{ 'dynForm.heading.formCreate' | trans }}
+            </a>
+        {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

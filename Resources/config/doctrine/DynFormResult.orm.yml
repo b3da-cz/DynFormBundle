@@ -1,0 +1,11 @@
+b3da\DynFormBundle\Entity\DynFormResult:
+    type: entity
+    table: b3da_dynform_result
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        data:
+            type: array
+            nullable: true

@@ -1,0 +1,26 @@
+b3da\DynFormBundle\Entity\DynField:
+    type: entity
+    table: b3da_dynform_field
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        DOMelementId:
+            type: string
+        type:
+            type: string
+        label:
+            type: string
+        required:
+            type: boolean
+            nullable: true
+        choices_as_values:
+            type: string
+            nullable: true
+        choices:
+            type: array
+            nullable: true
+        data:
+            type: text
+            nullable: true

@@ -1,0 +1,51 @@
+b3da\DynFormBundle\Entity\DynForm:
+    type: entity
+    table: b3da_dynform_form
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+    manyToMany:
+        field:
+            cascade: ["persist","remove"]
+            onDelete: CASCADE
+            options:
+                cascade:
+                    remove: true
+                    persist: true
+            orphanRemoval: false
+            targetEntity: b3da\DynFormBundle\Entity\DynField
+            joinTable:
+                name: b3da_dynform_form_field
+                joinColumns:
+                    form_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    field_id:
+                        referencedColumnName: id
+                        unique: true
+                        onDelete: CASCADE
+        result:
+            cascade: ["persist","remove"]
+            onDelete: CASCADE
+            options:
+                cascade:
+                    remove: true
+                    persist: true
+            orphanRemoval: false
+            targetEntity: b3da\DynFormBundle\Entity\DynFormResult
+            joinTable:
+                name: b3da_dynform_form_result
+                joinColumns:
+                    form_id:
+                        referencedColumnName: id
+                        onDelete: CASCADE
+                inverseJoinColumns:
+                    result_id:
+                        referencedColumnName: id
+                        unique: true
+                        onDelete: CASCADE
