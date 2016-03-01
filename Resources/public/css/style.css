@@ -6,7 +6,7 @@ aside#notices {
     top: 0;
     right: 0;
     margin: 1em 1em 0 0;
-    width: 15em;
+    width: 20em;
     z-index: 99;
 }
 
@@ -32,11 +32,7 @@ div.notice span:first-child {
     line-height: 1.25em;
 }
 
-div#dynForm_choiceList {
-    display: none;
-}
-
-button#dynForm_choiceAdd {
+div#dynForm_choiceList, div#dynForm_rowChoiceAdd {
     display: none;
 }
 
